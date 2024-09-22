@@ -1,98 +1,106 @@
+/**
+ * Implement Gatsby's Node APIs in this file.
+ *
+ * See: https://www.gatsbyjs.org/docs/node-apis/
+ */
+
 import path from "path";
 import _ from "lodash";
 import { GatsbyNode } from "gatsby";
 
-interface GraphQLResult {
-    data: {
-        postsRemark: {
-            edges: {
-                node: {
-                    frontmatter: {
-                        slug: string;
-                    };
-                };
-            }[];
-        };
-        tagsGroup: {
-            group: {
-                fieldValue: string;
-            }[];
-        };
-    };
-    errors?: any;
-}
+// interface GraphQLResult {
+//     data: {
+//         postsRemark: {
+//             edges: {
+//                 node: {
+//                     frontmatter: {
+//                         slug: string;
+//                     };
+//                 };
+//             }[];
+//         };
+//         tagsGroup: {
+//             group: {
+//                 fieldValue: string;
+//             }[];
+//         };
+//     };
+//     errors?: any;
+// }
 
-export const createPages: GatsbyNode["createPages"] = async ({
-    actions,
-    graphql,
-    reporter,
-}) => {
-    const { createPage } = actions;
-    const postTemplate = path.resolve(`src/templates/post.js`);
-    const tagTemplate = path.resolve("src/templates/tag.js");
+// export const createPages: GatsbyNode["createPages"] = async ({
+//     actions,
+//     graphql,
+//     reporter,
+// }) => {
+//     const { createPage } = actions;
+//     const postTemplate = path.resolve(`src/templates/post.js`);
+//     const tagTemplate = path.resolve("src/templates/tag.js");
 
-    const result = await graphql<GraphQLResult>(`
-        {
-            postsRemark: allMarkdownRemark(
-                filter: { fileAbsolutePath: { regex: "/posts/" } }
-                sort: { frontmatter: { date: DESC } }
-                limit: 1000
-            ) {
-                edges {
-                    node {
-                        frontmatter {
-                            slug
-                        }
-                    }
-                }
-            }
-            tagsGroup: allMarkdownRemark(limit: 2000) {
-                group(field: { frontmatter: { tags: SELECT } }) {
-                    fieldValue
-                }
-            }
-        }
-    `);
+//     const result = await graphql<GraphQLResult>(`
+//         {
+//             postsRemark: allMarkdownRemark(
+//                 filter: { fileAbsolutePath: { regex: "/content/posts/" } }
+//                 sort: { frontmatter: { date: DESC } }
+//                 limit: 1000
+//             ) {
+//                 edges {
+//                     node {
+//                         frontmatter {
+//                             slug
+//                         }
+//                     }
+//                 }
+//             }
+//             tagsGroup: allMarkdownRemark(limit: 2000) {
+//                 group(field: { frontmatter: { tags: SELECT } }) {
+//                     fieldValue
+//                 }
+//             }
+//         }
+//     `);
 
-    // Handle errors
-    if (result.errors) {
-        reporter.panicOnBuild(`Error while running GraphQL query.`);
-        return;
-    }
+//     // Handle errors
+//     if (result.errors) {
+//         reporter.panicOnBuild(`Error while running GraphQL query.`);
+//         return;
+//     }
 
-    // Create post detail pages
-    const posts = (result?.data as any)?.postsRemark?.edges;
+//     // Create post detail pages
+//     const posts = (result?.data as any)?.postsRemark?.edges;
 
-    posts.forEach(({ node }: any) => {
-        createPage({
-            path: node.frontmatter.slug,
-            component: postTemplate,
-            context: {}, // You can add more context if needed
-        });
-    });
+//     posts.forEach(({ node }: any) => {
+//         createPage({
+//             path: node.frontmatter.slug,
+//             component: postTemplate,
+//             context: {}, // You can add more context if needed
+//         });
+//     });
 
-    // Extract tag data from query
-    const tags = (result?.data as any)?.tagsGroup.group;
+//     // Extract tag data from query
+//     const tags = (result?.data as any)?.tagsGroup.group;
 
-    // Make tag pages
-    tags.forEach((tag: any) => {
-        createPage({
-            path: `/pensieve/tags/${_.kebabCase(tag.fieldValue)}/`,
-            component: tagTemplate,
-            context: {
-                tag: tag.fieldValue,
-            },
-        });
-    });
-};
+//     // Make tag pages
+//     tags.forEach((tag: any) => {
+//         createPage({
+//             path: `/pensieve/tags/${_.kebabCase(tag.fieldValue)}/`,
+//             component: tagTemplate,
+//             context: {
+//                 tag: tag.fieldValue,
+//             },
+//         });
+//     });
+// };
 
+// https://www.gatsbyjs.org/docs/node-apis/#onCreateWebpackConfig
 export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
     stage,
     loaders,
     actions,
 }) => {
     // Fix for third-party modules in SSR (Server-Side Rendering)
-    if (stage === "build-html") {
+    // https://www.gatsbyjs.org/docs/debugging-html-builds/#fixing-third-party-modules
+    if (stage === "build-html" || stage === "develop-html") {
         actions.setWebpackConfig({
             module: {
                 rules: [
@@ -102,6 +110,10 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
                     },
                     {
                         test: /animejs/,
+                        use: loaders.null(),
+                    },
+                    {
+                        test: /miniraf/,
                         use: loaders.null(),
                     },
                 ],
