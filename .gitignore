@@ -1,4 +1,12 @@
-node_modules/
+# Project dependencies
 .cache/
-public
+node_modules/
+yarn-error.log
+package-lock.json
+
+# Build directory
+/public
+.DS_Store
 src/gatsby-types.d.ts
+
+.vscode/

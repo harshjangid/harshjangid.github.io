@@ -1,37 +1,72 @@
 {
-  "name": "harsh-jangid",
-  "version": "1.0.0",
-  "private": true,
-  "description": "harsh-jangid",
-  "author": "HARSH JANGID",
-  "keywords": [
-    "gatsby"
-  ],
-  "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "babel-plugin-styled-components": "^2.1.4",
-    "gatsby": "^5.13.7",
-    "gatsby-plugin-google-gtag": "^5.13.1",
-    "gatsby-plugin-manifest": "^5.13.1",
-    "gatsby-plugin-sitemap": "^6.13.1",
-    "gatsby-plugin-styled-components": "^6.13.1",
-    "gatsby-source-filesystem": "^5.13.1",
-    "gatsby-transformer-remark": "^6.13.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "styled-components": "^6.1.13"
-  },
-  "devDependencies": {
-    "@types/node": "^20.11.19",
-    "@types/react": "^18.2.55",
-    "@types/react-dom": "^18.2.19",
-    "typescript": "^5.3.3"
-  }
+    "name": "harshjangid.github.io",
+    "description": "Personal Website",
+    "version": "1.0.0",
+    "author": "Harsh Jangid <harshjangidd@gmail.com>",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/harshjangid/harshjangid.github.io"
+    },
+    "keywords": [
+        "gatsby"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "build": "gatsby build",
+        "develop": "gatsby develop",
+        "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+        "start": "npm run develop",
+        "serve": "gatsby serve",
+        "clean": "gatsby clean",
+        "deploy": "gatsby build && gh-pages -d public -b main",
+        "typecheck": "tsc --noEmit"
+    },
+    "dependencies": {
+        "animejs": "^3.2.2",
+        "babel-plugin-styled-components": "^2.1.4",
+        "gatsby": "^5.13.7",
+        "gatsby-image": "^3.11.0",
+        "gatsby-plugin-google-analytics": "^5.13.1",
+        "gatsby-plugin-manifest": "^5.13.1",
+        "gatsby-plugin-netlify": "^5.1.1",
+        "gatsby-plugin-offline": "^6.13.3",
+        "gatsby-plugin-react-helmet": "^6.13.1",
+        "gatsby-plugin-robots-txt": "^1.8.0",
+        "gatsby-plugin-sharp": "^5.13.1",
+        "gatsby-plugin-sitemap": "^6.13.1",
+        "gatsby-plugin-styled-components": "^6.13.1",
+        "gatsby-remark-external-links": "0.0.4",
+        "gatsby-remark-images": "^7.13.2",
+        "gatsby-remark-prismjs": "^7.13.2",
+        "gatsby-source-filesystem": "^5.13.1",
+        "gatsby-transformer-remark": "^6.13.1",
+        "gatsby-transformer-sharp": "^5.13.1",
+        "lodash": "^4.17.21",
+        "prismjs": "^1.29.0",
+        "prop-types": "^15.8.1",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "react-helmet": "^6.1.0",
+        "react-transition-group": "^4.4.5",
+        "scrollreveal": "^4.0.9",
+        "smooth-scroll": "^16.1.0",
+        "styled-components": "^6.1.13"
+    },
+    "devDependencies": {
+        "@types/node": "^20.11.19",
+        "@types/react": "^18.2.55",
+        "@types/react-dom": "^18.2.19",
+        "typescript": "^5.3.3",
+        "@upstatement/eslint-config": "^3.0.0",
+        "@upstatement/prettier-config": "^1.1.0",
+        "babel-eslint": "^10.1.0",
+        "eslint": "^9.10.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-react": "^7.36.1",
+        "gatsby-remark-code-titles": "^1.1.0",
+        "gh-pages": "^6.1.1",
+        "husky": "^9.1.6",
+        "lint-staged": "^15.2.10",
+        "prettier": "^3.3.3"
+    }
 }
