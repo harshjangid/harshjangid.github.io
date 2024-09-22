@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://harshjangid.github.io/sitemap-index.xml
+Host: https://harshjangid.github.io
