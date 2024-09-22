@@ -36,13 +36,13 @@ const StyledEmailLink = styled.a`
     }
 `;
 
-const Email = ({ isHome }) => {
-    return <Side isHome={isHome} orientation="right">
+const Email = ({ isHome }) => (
+    <Side isHome={isHome} orientation="right">
         <StyledLinkWrapper>
             <StyledEmailLink href={mailHref()}>{email}</StyledEmailLink>
         </StyledLinkWrapper>
     </Side>
-};
+);
 Email.propTypes = {
     isHome: PropTypes.bool,
 };

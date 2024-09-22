@@ -1,15 +1,15 @@
 ---
-date: '2020-02-15'
-title: 'Basic Chatbot'
-github: 'https://github.com/harshjangid/Basic-Chatbot'
-external: ''
+date: "2020-02-15"
+title: "Basic Chatbot"
+github: "https://github.com/harshjangid/Basic-Chatbot"
+external: ""
 tech:
-  - Python
-  - Numpy
-  - Keras
-  - NLTK
-  - Pickle
-company: ''
+    - Python
+    - Numpy
+    - Keras
+    - NLTK
+    - Pickle
+company: ""
 showInProjects: true
 ---
 

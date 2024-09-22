@@ -1,11 +1,11 @@
 ---
 title: Markdown Test File
 description: abc234
-date: '2019-12-07'
+date: "2019-12-07"
 draft: true
-slug: '/pensieve/markdown-playground'
+slug: "/pensieve/markdown-playground"
 tags:
-  - Testing
+    - Testing
 ---
 
 ![Image Alt](./image.jpg)
@@ -178,8 +178,8 @@ a {
 
 you can write text [with links](http://example.com) inline or [link references][1].
 
-- one _thing_ has *em*phasis
-- two **things** are **bold**
+-   one _thing_ has *em*phasis
+-   two **things** are **bold**
 
 [1]: http://example.com
 
@@ -256,30 +256,30 @@ you can write text [with links](http://example.com) inline or [link references][
     >
     >     Markdown.generate();
 
-- Red
-- Green
-- Blue
+-   Red
+-   Green
+-   Blue
 
-* Red
-* Green
-* Blue
+*   Red
+*   Green
+*   Blue
 
-- Red
-- Green
-- Blue
+-   Red
+-   Green
+-   Blue
 
 ```markdown
-- Red
-- Green
-- Blue
+-   Red
+-   Green
+-   Blue
 
-* Red
-* Green
-* Blue
+*   Red
+*   Green
+*   Blue
 
-- Red
-- Green
-- Blue
+-   Red
+-   Green
+-   Blue
 ```
 
 1. Buy flour and salt
@@ -322,13 +322,13 @@ Paragraph:
 
     ---------------------------------------
 
-This is [an example](http://example.com 'Example') link.
+This is [an example](http://example.com "Example") link.
 
 [This link](http://example.com) has no title attr.
 
 This is [an example][id] reference-style link.
 
-[id]: http://example.com 'Optional Title'
+[id]: http://example.com "Optional Title"
 
     This is [an example](http://example.com "Example") link.
 

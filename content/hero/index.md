@@ -1,8 +1,8 @@
 ---
-title: 'Hello, my name is'
-name: 'Harsh Jangid'
-subtitle: 'I love exploring new things!'
-buttonText: 'Get In Touch'
+title: "Hello, my name is"
+name: "Harsh Jangid"
+subtitle: "I love exploring new things!"
+buttonText: "Get In Touch"
 ---
 
 I’m a Software Engineer 2 at Microsoft, specializing in Azure solutions. I graduated with a B.Tech. in Electrical Engineering from Indian Institute of Technology, Banaras Hindu University (IIT-BHU) Varanasi in May 2021.

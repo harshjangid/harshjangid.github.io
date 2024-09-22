@@ -1,14 +1,14 @@
 ---
-date: '2'
-title: 'Disney+ Clone'
-cover: './disneyclone.png'
-github: 'https://github.com/harshjangid/Disney-plus-Clone'
-external: 'https://disney-clone-83e44.web.app/'
+date: "2"
+title: "Disney+ Clone"
+cover: "./disneyclone.png"
+github: "https://github.com/harshjangid/Disney-plus-Clone"
+external: "https://disney-clone-83e44.web.app/"
 tech:
-  - ReactJS
-  - Redux
-  - Styled Components
-  - Firebase
+    - ReactJS
+    - Redux
+    - Styled Components
+    - Firebase
 showInProjects: false
 ---
 
